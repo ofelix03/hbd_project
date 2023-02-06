@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record model="ir.cron" id="update_task_state_cron">
+            <field name="name">Update Task State</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="model" eval="'project.project'"/>
+            <field name="function" eval="'_cron_compute_tasks_stats'"/>
+            <field name="args" eval="'()'"/>
+            <field name="active" eval="False" />
+        </record>
+    </data>
+</openerp>

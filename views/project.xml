@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+
+        <record id="projct_tree" model="ir.ui.view">
+            <field name="name">project.tree</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='progress_rate']" position="after">
+                    <field name="open_tasks_count" />
+                    <field name="delayed_tasks_count" />
+                    <field name="finished_tasks_current_month_count" />
+                    <field name="finished_tasks_current_past_week_count" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

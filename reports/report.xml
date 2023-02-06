@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <report
+                id="project_tasks"
+                model="project.task"
+                string="Print Manager Report"
+                report_type="qweb-pdf"
+                name="project.report_project_task"
+                file="project.report_project_task"
+                attachment_use="True"
+        />
+    </data>
+</openerp>
