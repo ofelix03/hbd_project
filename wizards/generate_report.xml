@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record id="genereate_report_form" model="ir.ui.view">
+            <field name="name">hbd.generate.report.form</field>
+            <field name="model">hbd.generate.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <footer>
+                        <button string="Generate Report" name="generate_report"
+                                type="object"
+                                class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

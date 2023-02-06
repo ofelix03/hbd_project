@@ -11,6 +11,7 @@
         "views/task.xml",
         "reports/report_template.xml",
         "reports/report.xml",
+        "wizards/generate_report.xml",
     ],
     "demo": [],
 }

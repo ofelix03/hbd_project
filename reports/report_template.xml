@@ -3,11 +3,64 @@
     <data>
         <template id="report_project_task">
             <t t-call="report.html_container">
-                <t t-foreach="docs" t-as="o">
+                <t t-foreach="docs" t-as="docs">
                     <t t-call="report.external_layout">
-                        <div class="page">
-                            <h2>Report title</h2>
-                            <p>This object's name is <span t-field="o.name"/></p>
+                        <div class="page" style="margin: 20px;  0">
+
+                            <style>
+                                .text-right {
+                                text-align: right; c
+                                }
+
+                                table {
+                                width: 100%;
+                                border-bottom: 1px solid #ddd;
+                                padding-top: 20px;
+                                padding-bottom: 20px;
+                                }
+
+                                table:last-child {
+                                border: 0;
+                                }
+
+
+                                th, h3 {
+                                padding-left: 10px;
+                                }
+
+                                td {
+                                padding: 10px;
+                                }
+
+
+                            </style>
+                            <h1>Tasks Report</h1>
+
+                            <t t-foreach="docs" t-as="u">
+                                <h3><t t-esc="u['user_name']" /></h3>
+                                <table>
+                                    <tr>
+                                        <th>Project</th>
+                                        <th>Task Name</th>
+                                        <th>Open</th>
+                                        <th class="text-right">Delay</th>
+                                        <th class="text-right">Finish Month</th>
+                                        <th class="text-right">Finish Week</th>
+                                    </tr>
+                                    <tr t-foreach="u['tasks']" t-as="task">
+                                        <td><t t-esc="task.project_id.name" /></td>
+                                        <td><t t-esc="task.name" /></td>
+                                        <td class="text-right"><t
+                                                t-esc="task.project_id.open_tasks_count" /></td>
+                                        <td class="text-right"><t
+                                                t-esc="task.project_id.delayed_tasks_count" /></td>
+                                        <td class="text-right"><t
+                                                t-esc="task.project_id.finished_tasks_current_month_count" /></td>
+                                        <td class="text-right"><t
+                                                t-esc="task.project_id.finished_tasks_current_past_week_count" /></td>
+                                    </tr>
+                                </table>
+                            </t>
                         </div>
                     </t>
                 </t>
