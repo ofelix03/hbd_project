@@ -35,8 +35,8 @@ class Project(models.Model):
                 }
             )
 
-    # def _cron_compute_tasks_stats(self, cr, uid, context=None):
-    #     ids = self.pool["project.project"].search(cr, uid, [], context=context)
-    #     projects = self.pool["project.project"].browse(cr, uid, ids)
-    #     for project in projects:
-    #         project.compute_tasks_stats()
+    def _cron_compute_tasks_stats(self, cr, uid, context=None):
+        ids = self.pool["project.project"].search(cr, uid, [], context=context)
+        projects = self.pool["project.project"].browse(cr, uid, ids)
+        for project in projects:
+            project.compute_tasks_stats()

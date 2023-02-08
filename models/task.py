@@ -123,11 +123,11 @@ class Task(models.Model):
 
     @api.depends("test", "stage_id", "work_ids")
     def _compute_test(self):
-        # I anticipate a linear complexity with the approach adopted here to
+        # I anticipate a linear time complexity with the approach I have taken here to
         # determine the state of the various tasks of each project.
         # An optimized solution will be to employ a cron that runs every minute, checks
-        # and update the count of each state
-        # A third option will be to use a server action to refresh the state of every
-        # project/task after user selection
+        # and update the count of each tasks state
+        # A third option will be to use a menu action to refresh the state of every
+        # project/task after they have ben selected
         for task in self:
             task.project_id.compute_tasks_stats()
